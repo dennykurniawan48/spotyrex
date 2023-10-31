@@ -45,7 +45,7 @@ function Player() {
 
     if (isPlaying && songRef.current) {
       const f = () => {
-        setPosition(songRef.current.seek());
+        setPosition(songRef.current ? songRef.current.seek() : 0.0);
         idTimeout = requestAnimationFrame(f);
       };
 
