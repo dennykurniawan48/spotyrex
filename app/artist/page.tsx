@@ -2,21 +2,21 @@ import Link from "next/link";
 import React from "react";
 
 async function Page() {
-  const data: SongArtist[] = []
-  // await fetch(
-  //   `${process.env.NEXTAUTH_URL}/api/artist`,
-  //   { cache: "no-cache" }
-  // )
-  //   .then((res) => {
-  //     if (res.ok) {
-  //       return res.json();
-  //     }
-  //   })
-  //   .then((res) => res.data)
-  //   .catch((err) => {
-  //     console.log(err);
-  //     return [];
-  //   });
+  const data: SongArtist[] = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/artist`,
+    { cache: "no-cache" }
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then((res) => res.data)
+    .catch((err) => {
+      console.log(err);
+      return [];
+    });
+
   return (
     <div className="flex flex-col md:w-3/4 lg:w-4/5 h-full bg-black p-8 overflow-y-scroll">
       <span className="text-3xl font-bold text-white">Our artist</span>

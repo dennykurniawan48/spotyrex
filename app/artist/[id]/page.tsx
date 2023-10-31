@@ -6,20 +6,19 @@ import { MdPlayArrow, MdPlayCircleFilled } from "react-icons/md";
 import SongTable from "./songtable";
 
 async function Page(props: { params: { id: string } }) {
-  const data: DetailArtist | null = null
-  // await fetch(
-  //   `http://192.168.43.30:3000/api/artist/${props.params.id}`, {cache: 'no-cache'}
-  // )
-  //   .then((res) => {
-  //     if (res.ok) {
-  //       return res.json();
-  //     }
-  //   })
-  //   .then((res) =>  res.data)
-  //   .catch((err) => {
-  //     console.log(err);
-  //     return null;
-  //   });
+  const data: DetailArtist | null = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/artist/${props.params.id}`, {cache: 'no-cache'}
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then((res) =>  res.data)
+    .catch((err) => {
+      console.log(err);
+      return null;
+    });
 
   if (!data) {
     notFound();
