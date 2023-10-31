@@ -2,19 +2,20 @@ import Link from "next/link";
 import React from "react";
 
 async function HomePlaylist() {
-  const data: Playlist[] = await fetch(`${process.env.NEXTAUTH_URL}/api/playlist`, {cache: 'no-cache'})
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-      return [];
-    });
+  const data: Playlist[] = []
+  // await fetch(`${process.env.NEXTAUTH_URL}/api/playlist`, {cache: 'no-cache'})
+  //   .then((res) => {
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //   })
+  //   .then((res) => {
+  //     return res.data;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     return [];
+  //   });
   return (
     <div className="flex flex-col w-full md:w-3/4 lg:w-4/5 h-full bg-black p-8 overflow-y-scroll">
       <span className="text-3xl font-bold text-white">Our playlist</span>

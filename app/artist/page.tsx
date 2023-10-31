@@ -2,14 +2,21 @@ import Link from "next/link";
 import React from "react";
 
 async function Page() {
-  const data: SongArtist[] = await fetch(`${process.env.NEXTAUTH_URL}/api/artist`, {cache: 'no-cache'})
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((res) => res.data)
-    .catch((err) => console.log(err));
+  const data: SongArtist[] = []
+  // await fetch(
+  //   `${process.env.NEXTAUTH_URL}/api/artist`,
+  //   { cache: "no-cache" }
+  // )
+  //   .then((res) => {
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //   })
+  //   .then((res) => res.data)
+  //   .catch((err) => {
+  //     console.log(err);
+  //     return [];
+  //   });
   return (
     <div className="flex flex-col md:w-3/4 lg:w-4/5 h-full bg-black p-8 overflow-y-scroll">
       <span className="text-3xl font-bold text-white">Our artist</span>
@@ -23,9 +30,7 @@ async function Page() {
             >
               <img src={artist.image} className="w-full aspect-square" />
               <div className="flex flex-col">
-                <span className="text-sm text-white">
-                  {artist.name}
-                </span>
+                <span className="text-sm text-white">{artist.name}</span>
               </div>
             </Link>
           );
