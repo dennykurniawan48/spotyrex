@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 async function HomePlaylist() {
-  const data: Playlist[] = await fetch(`${process.env.NEXTAUTH_URL}/api/playlist`, {cache: 'no-cache'})
+  const data: Playlist[] = await fetch(`${process.env.NEXTAUTH_URL}/api/playlist`, {cache: "no-cache"})
     .then((res) => {
       if (res.ok) {
         return res.json();
