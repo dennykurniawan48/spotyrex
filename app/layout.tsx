@@ -33,7 +33,7 @@ export default function RootLayout({
               <div className="w-full h-[calc(100vh_-_7rem)] flex flex-row">
                 <div className="sm:hidden md:flex flex-col py-2 md:w-1/4 lg:w-1/5 h-full bg-gray-700 items-center justify-between pt-4">
                   <div className="w-full flex flex-col items-center">
-                    <span className="text-3xl text-white">Spotyrex</span>
+                    <Link href="/"><span className="text-3xl text-white">Spotyrex</span></Link>
                     <div className="w-full flex flex-col space-y-3 p-4">
                       <Link
                         href={"/"}
