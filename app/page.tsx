@@ -3,6 +3,6 @@ import HomePlaylist from "./homePlaylist";
 
 export default function Home() {
   return (
-   <HomePlaylist/>
+   <HomePlaylist />
   );
 }
