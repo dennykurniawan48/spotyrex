@@ -41,7 +41,7 @@ function Player() {
   }, [playlist, index, firstLoad]);
 
   useEffect(() => {
-    let idTimeout;
+    let idTimeout: number;
 
     if (isPlaying && songRef.current) {
       const f = () => {
