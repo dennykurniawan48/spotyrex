@@ -1,8 +1,12 @@
+import { connectMongo } from "@/helper/database/conn";
 import Artists from "@/helper/database/model/artistModel";
 import Playlists from "@/helper/database/model/playlistModel";
 import Songs from "@/helper/database/model/songModel";
 
 export async function GET(req: Request){
+  connectMongo().catch((err) => {
+    console.log("error")
+});
     const url = new URL(req.url)
     const pathname = url.pathname.split('/')
     const id = pathname[pathname.length - 1]
