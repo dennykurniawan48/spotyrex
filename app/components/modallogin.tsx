@@ -27,7 +27,7 @@ function ModalLogin() {
       <div className=' w-[500px]'>
         <div className='w-full space-y-6 p-6 bg-gray-700 flex flex-col'>
            <div className='flex flex-col space-y-4'>
-           <span className='text-md font-bold'>Seems you're not login yet.</span>
+           <span className='text-md font-bold'>{`Seems you're not login yet.`}</span>
             <span className='text-sm'>Consider to make an account or login as guest.</span>
            </div>
             <div className='w-full flex flex-row justify-between items-center px-8'>
