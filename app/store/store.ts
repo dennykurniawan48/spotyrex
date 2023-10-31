@@ -5,7 +5,7 @@ import { playlistSlice } from "./features/playlistSlice";
 import { listenerMiddleware } from "./middleware";
 import { Song } from "@/helper/types/song/Song";
 
-export type PlaySong ={
+export type PlaySong = {
     playlist: Song[],
     index: number,
     repeat: boolean,
@@ -14,10 +14,18 @@ export type PlaySong ={
     guestLogin: boolean
 }
 
-const initialState: PlaySong = JSON.parse(localStorage.getItem("playlist") || '{ "playlist": [],"index": 0, "repeat": false, "shuffle": false, "firstLoad": true, "guestLogin": false}');
+const initial = '{ "playlist": [],"index": 0, "repeat": false, "shuffle": false, "firstLoad": true, "guestLogin": false}'
+
+let item: string | null = initial
+
+if (typeof window !== 'undefined') {
+    item = localStorage.getItem("playlist")
+}
+
+const initialState: PlaySong = JSON.parse(item ?? initial);
 const store = configureStore({
     preloadedState: {
-        songs: initialState === null ? { playlist:[], index:0, repeat: false, shuffle: false, firstLoad: true, guestLogin: false } : initialState
+        songs: initialState === null ? { playlist: [], index: 0, repeat: false, shuffle: false, firstLoad: true, guestLogin: false } : initialState
     },
     reducer: { songs: playlistSlice.reducer },
     middleware: (getDefaultMiddleware) => [
