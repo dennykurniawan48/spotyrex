@@ -50,7 +50,7 @@ function Player() {
       };
 
       idTimeout = requestAnimationFrame(f);
-      console.log(idTimeout)
+      
       return () => cancelAnimationFrame(idTimeout);
     }
 
